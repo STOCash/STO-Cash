@@ -35,7 +35,6 @@ contract STOCash is ERC20, ERC20Burnable, Pausable, Ownable, Lockable {
 
     constructor() ERC20("STO Cash", "STOC") {
         mintFinished = false;
-
         _mint(msg.sender, 10000000000 * 10 ** decimals());
     }
 
@@ -62,10 +61,5 @@ contract STOCash is ERC20, ERC20Burnable, Pausable, Ownable, Lockable {
         require(!isLocked(from), "from account was locked.");
         require(!isLocked(to), "to account was locked.");
         super._update(from, to, amount);
-    }
-
-    function symbol() public virtual view override returns (string memory)
-    {
-        return "STOC";
     }
 }
